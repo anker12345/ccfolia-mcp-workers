@@ -1,0 +1,27 @@
+{
+  "name": "ccfolia-mcp-workers",
+  "version": "1.0.0",
+  "description": "ココフォリア MCP API on Cloudflare Workers",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --name ccfolia-mcp-api",
+    "tail": "wrangler tail",
+    "test": "node scripts/test-api.js",
+    "build": "wrangler deploy --dry-run",
+    "format": "prettier --write src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/USERNAME/ccfolia-mcp-workers.git"
+  },
+  "keywords": ["trpg", "ccfolia", "cloudflare-workers", "mcp"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0",
+    "prettier": "^3.0.0"
+  }
+}
