@@ -26,6 +26,58 @@ git push origin main
 # → GitHub Actionsが自動でCloudflareにデプロイ
 ```
 
+## 🤖 Claude Desktop 統合
+
+### 自動セットアップ（推奨）
+```bash
+# Linux/macOS
+./scripts/setup-claude-mcp.sh
+
+# Windows PowerShell
+.\scripts\setup-claude-mcp.ps1
+```
+
+### 手動セットアップ
+1. MCP依存関係をインストール:
+```bash
+npm install @modelcontextprotocol/sdk
+```
+
+2. Claude Desktop設定ファイルを編集:
+   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+   - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - **Linux**: `~/.config/Claude/claude_desktop_config.json`
+
+3. 設定内容:
+```json
+{
+  "mcpServers": {
+    "ccfolia-mcp": {
+      "command": "node",
+      "args": [
+        "/path/to/ccfolia-mcp-workers/mcp-server.js"
+      ],
+      "env": {
+        "WORKER_URL": "https://your-worker.workers.dev"
+      }
+    }
+  }
+}
+```
+
+4. Claude Desktop を再起動
+
+### Claude Desktop での使用方法
+Claude Desktop で以下のように質問するだけで、TRPGツールが使用できます:
+
+```
+「田中太郎という30歳の探偵キャラクターを生成して」
+「学校の怪奇現象シナリオ用にNPCを3体生成して」
+「このセッションの進行状況を分析して」
+「探索用のランダムイベントを生成して」
+「戦闘ルールについて教えて」
+```
+
 ## 🎮 機能
 
 - **キャラクター生成**: TRPGキャラクターの自動生成
